@@ -11,7 +11,7 @@ function App() {
   const [search,setSearch] =useState("");
   const [query,setqUERY]=useState('chicken');
   useEffect(() => {
-    getRecipies();
+    getRecipies([]);
   }, [query]);
 
   const getRecipies = async () => {
