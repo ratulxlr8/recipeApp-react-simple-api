@@ -11,15 +11,27 @@ function App() {
   const [search,setSearch] =useState("");
   const [query,setqUERY]=useState('chicken');
   useEffect(() => {
-    getRecipies([]);
-  }, [query]);
+    // getRecipies = async () => {
+       fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`)
+      .then(res=>res.json())
+      .then(data=>{
+        setrecipies(data.hits);
+        console.log(data.hits[5].recipe.label);
 
-  const getRecipies = async () => {
-    const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`)
-    const data = await response.json();
-    setrecipies(data.hits);
-    console.log(data.hits);
-  };
+      })
+      // const data =  response.json();
+      
+      // setrecipies(data.hits);
+      // console.log(data.hits);
+    // };
+  }, [query, APP_ID, APP_KEY]);
+
+  // const getRecipies = async () => {
+  //   const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`)
+  //   const data = await response.json();
+  //   setrecipies(data.hits);
+  //   console.log(data.hits);
+  // };
   const updateSearch= e =>{
     setSearch(e.target.value);
 
@@ -41,9 +53,9 @@ function App() {
 
       </form>
       <div className="recipes">
-      {recipies.map(recipie => (
+      {recipies.map((recipie,index) => (
         <Recipe
-          key={recipie.recipe.label}
+          key={index}
           title={recipie.recipe.label}
           calories={recipie.recipe.calories}
           image={recipie.recipe.image}

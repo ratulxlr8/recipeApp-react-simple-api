@@ -2,29 +2,27 @@
   min-height: 100vh;
   background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
 }
-.searchy-form{
+.searchy-form {
   min-height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.search-bar{
+.search-bar {
   width: 50%;
   border: none;
   padding: 10px;
 }
-.search-bar:hover{
- 
-  box-shadow: 0px 0px 5px 5px rgba(255,165,0,1);
-  }
-.search-buttnon{
+.search-bar:hover {
+  box-shadow: 0px 0px 5px 5px rgba(255, 165, 0, 1);
+}
+.search-buttnon {
   background: lightslategrey;
   border: none;
   padding: 10px 20px;
   color: aliceblue;
-
 }
-.recipes{
+.recipes {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
